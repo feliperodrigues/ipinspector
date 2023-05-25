@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ip inspector</title>
+    <style>
+	    body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    box-sizing: border-box;
+	    }
+
+	    input[type="text"] {
+		    padding: 10px;
+		    border: 1px solid #ddd;
+		    border-radius: 5px;
+		    width: 80%;
+	    }
+
+	    input[type="submit"] {
+		    padding: 10px 20px;
+		    border: none;
+		    background-color: #007BFF;
+		    color: #fff;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    transition: background-color 0.3s ease;
+	    }
+
+	    input[type="submit"]:hover {
+		    background-color: #0056b3;
+	    }
+
+	    form {
+		    margin-bottom: 20px;
+	    }
+
+	    table {
+		    width: 100%;
+		    border-collapse: collapse;
+	    }
+
+	    th, td {
+		    padding: 10px;
+		    border: 1px solid #ddd;
+	    }
+
+	    th {
+		    background-color: #f8f8f8;
+		    text-align: left;
+	    }
+
+    </style>
+</head>
+<body>
+<form action="{{ path('ip_info') }}" method="post">
+    <label for="ip">IP:</label><br>
+    <input type="text" id="ip" name="ip" value=""><br>
+    <input type="submit" value="Verificar">
+</form>
+{% if content is defined %}
+<table>
+    <thead>
+    <tr>
+        <th>Info</th>
+        <th>Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Status</td>
+        <td>{{ content.status }}</td>
+    </tr>
+    <tr>
+        <td>Country</td>
+        <td>{{ content.country }}</td>
+    </tr>
+    <tr>
+        <td>Country Code</td>
+        <td>{{ content.countryCode }}</td>
+    </tr>
+    <tr>
+        <td>Region</td>
+        <td>{{ content.region }}</td>
+    </tr>
+    <tr>
+        <td>Region Name</td>
+        <td>{{ content.regionName }}</td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>{{ content.city }}</td>
+    </tr>
+    <tr>
+        <td>ZIP</td>
+        <td>{{ content.zip }}</td>
+    </tr>
+    <tr>
+        <td>Latitude</td>
+        <td>{{ content.lat }}</td>
+    </tr>
+    <tr>
+        <td>Longitude</td>
+        <td>{{ content.lon }}</td>
+    </tr>
+    <tr>
+        <td>Timezone</td>
+        <td>{{ content.timezone }}</td>
+    </tr>
+    <tr>
+        <td>ISP</td>
+        <td>{{ content.isp }}</td>
+    </tr>
+    <tr>
+        <td>Organization</td>
+        <td>{{ content.org }}</td>
+    </tr>
+    <tr>
+        <td>AS</td>
+        <td>{{ content.as }}</td>
+    </tr>
+    <tr>
+        <td>Query</td>
+        <td>{{ content.query }}</td>
+    </tr>
+    </tbody>
+</table>
+{% endif %}
+</body>
+</html>
